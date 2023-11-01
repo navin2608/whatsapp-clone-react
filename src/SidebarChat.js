@@ -13,12 +13,12 @@ function SidebarChat({addNewChat,id,name}){
                     setMessages(snapshot.docs.map((doc)=>doc.data()))
                 })
             }                         
-    },[])
+    },[id])
     useEffect(()=>{
         setSeed(Math.floor(Math.random()*5000));
     },[]);
     const createChat=()=>{
-        const roomName= prompt("Please enter name for chat");
+        const roomName= prompt("Please enter name for Chat Group");
         if(roomName){
             //database stuff
             db.collection('rooms').add({
@@ -37,6 +37,6 @@ function SidebarChat({addNewChat,id,name}){
         </div>
         </Link>
        
-    ):(<div onClick={createChat} className="sidebarChat"><h2>Add new Chat</h2></div>)
+    ):(<div onClick={createChat} className="sidebarChat"><h2>  + Create new Group</h2></div>)
     }
 export default SidebarChat;

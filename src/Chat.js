@@ -24,11 +24,11 @@ function Chat(){
             const unsubscribe= db.collection("rooms")
             .doc(roomId.split(':')[1])
             .onSnapshot((snapshot)=>setroomName
-                (snapshot.data().name))   
+                (snapshot.data().name)); 
                 // return ()=>{unsubscribe();}
                 db.collection('rooms').doc(roomId.split(':')[1]).
                 collection("messages").orderBy
-                ('timestamp','asc').onSnapshot(snapshot=>{
+                ('timestamp').onSnapshot(snapshot=>{
                     (setMessages(snapshot.docs.map(doc=>doc.data())))
                 })
         }
@@ -52,7 +52,7 @@ function Chat(){
                  <Avatar src={`https://api.dicebear.com/7.x/pixel-art/svg`}></Avatar>
            <div className="chat__headerInfo">
                <h3>{roomName}</h3>
-               <p>Last seen at {new Date(messages[messages.length-1]?.timestamp?.toDate()).toUTCString()}</p>
+               <p>{messages.length>0?`Last seen at ${new Date(messages[messages.length-1]?.timestamp?.toDate()).toUTCString()}`:""}</p>
            </div>
             <div className="chat__headerRight">
                 <IconButton>

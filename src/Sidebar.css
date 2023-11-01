@@ -7,7 +7,7 @@
     display:flex;
     justify-content:space-between;
     padding: 20px;
-    border-right: 1px solid red;
+    border-right: 1px solid gray;
 }
 .sidebar__headerRight{
     display: flex;
@@ -23,8 +23,8 @@
     display: flex;
     align-items: center;
     background-color: #f6f6f6;
-    height:35px;
-    width:35px;
+    height:39px;
+    padding:10px;
 }
 .sidebar__searchContainer{
     display:flex;
@@ -37,8 +37,6 @@
 .sidebar__searchContainer > input{
     border:none;
     margin-left:10px;
-    
-   
 }
 .sidebar__searchContainer > .MuiSvgIcon-root{
     padding:10px;
