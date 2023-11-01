@@ -1,18 +1,19 @@
-import { SelectActionTypes } from "@mui/base";
+// import { SelectActionTypes } from "@mui/base";
 import React from "react";
 import { auth,provider } from "./firebaseconfig";
 import "./Login.css";
 import {useStateValue} from "./StateProvider.js";
+import {actionTypes} from './reducer';
 function Login(){
     const[{},dispatch]=useStateValue();
     const signin=()=>{
         auth.signInWithPopup(provider)
         .then((result)=>{
-            dispatch({type:SelectActionTypes.SET_USER,
+            dispatch({type:actionTypes.SET_USER,
             user:result.user});
         })
         .catch((error)=>alert(error.message));        
-    }
+    };
     return (
         <div className="login">
             <div className="login__container">
